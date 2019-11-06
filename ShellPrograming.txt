@@ -12,3 +12,30 @@ VAR="${VAR2}${VAR3}"
 変数の値を参照する場合は変数名の頭に $ を付ける。参照する変数を明確にする場合は {} (中括弧) で変数名を囲む。
 変数を {} で囲むことはシェルスクリプトの可読性を高めることにも有効である。
 「${foo}${bar}」のように複数の変数を同時に参照する場合などは、{} を使用した方が個々の変数を区別しやすくなる。
+
+
+
+http://doi-t.hatenablog.com/entry/2015/03/29/225239
+Linuxターミナル、コマンドtips その3: stdin, stderr, stdout, リダイレクト, パイプ
+
+1) stdoutとstderrを１つのファイルにマージする
+command > output-stdout-stderr 2>&1
+
+2) stdoutとstderrを両方とも捨てる
+command > /dev/null 2>&1
+
+3) stdoutは捨てて、stderrをstdoutとして出力する
+command 2>&1 > /dev/null
+
+
+https://qiita.com/ritukiii/items/b3d91e97b71ecd41d4ea
+いい加減覚えよう。 `command > /dev/null 2>&1`の意味
+
+・2>&1
+　　標準エラー出力の結果を標準出力にマージする
+・> /dev/null
+　　標準出力を捨てる
+
+つまり、このコマンドの意味は、
+標準エラー出力の結果を標準出力にマージして、/dev/nullに捨てる
+という事だったわけです。
