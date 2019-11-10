@@ -1,3 +1,11 @@
+図解でわかるLinuxシェルスクリプト・正規表現
+P.128 バッククォートとコマンド置換
+バッククォート：バッククォート内の文字列は＄、｀、￥の直前の￥の３つだけが特殊な意味を持つ文字と
+して認識される。置換後の文字列内に改行コードを含む場合は、それを取り除いて返される。
+　　　　$ echo `cal 05 2006`
+＄（）：バッククォートとの相違点は文字列内のバックスラッシュによる特殊文字のエスケープは機能するものの、
+￥を含むすべての文字が特殊な意味を失う。ダブルクォートで囲むと、改行コードはそのまま。
+　　　　$ echo "$(cal 05 2006)"
 
 
 https://shellscript.sunone.me/variable.html
@@ -23,9 +31,11 @@ command > output-stdout-stderr 2>&1
 
 2) stdoutとstderrを両方とも捨てる
 command > /dev/null 2>&1
+->(command 1> /dev/null 2>&1)
 
 3) stdoutは捨てて、stderrをstdoutとして出力する
 command 2>&1 > /dev/null
+->(command 2>&1 1> /dev/null)
 
 
 https://qiita.com/ritukiii/items/b3d91e97b71ecd41d4ea

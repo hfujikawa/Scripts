@@ -1,0 +1,4 @@
+func_export_rdir() {
+	export RDIR="/home/pi"
+	return 0
+}

@@ -15,6 +15,10 @@ https://askubuntu.com/questions/672586/ssh-r-wont-run-in-etc-rc-local
 'ssh -R' won't run in /etc/rc.local
 
 
+https://server-setting.info/centos/ssh-auto-reset-handling.html
+SSH接続が自動で切断された時の対処
+
+
 https://qiita.com/Syuma/items/afbdf98d25f29c72b4a9
 CUI起動設定
 $ sudo systemctl set-default multi-user.target
@@ -31,3 +35,6 @@ https://tomosoft.jp/design/?p=11677
 
 https://raspi.ryo.sc/systemd_autorun/
 Raspberry Pi : Systemd を使って OS の起動・終了時に自動実行する
+
+https://qiita.com/Higemal/items/5a579b2701ef7c473062
+RaspberryPi3で初めてcrontabを使う前に
