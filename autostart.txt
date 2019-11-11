@@ -4,6 +4,14 @@
 /etc/lightdm/lightdm.conf
 
 ~.config/autostart .desktop
+[Desktop Entry]
+Type=Application
+Exec="/home/i2m/Develop/Scripts/sftp_retry_get_tar.sh"
+Terminal=true
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Startup Shell Script
 
 
 https://askubuntu.com/questions/765995/start-screen-programm-with-crontab-reboot
