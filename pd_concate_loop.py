@@ -13,8 +13,8 @@ from IPython.core.display import display
 
 # https://stackoverflow.com/questions/28669482/appending-pandas-dataframes-generated-in-a-for-loop
 
-target_dir = 'D:/Develop/Asset'
-files = glob.glob(target_dir + '/*-usdjpy-*.csv')
+target_dir = 'D:\\Develop\\Asset\\api-usdjpy-*.csv'
+files = glob.glob(target_dir)
 
 df_merged = pd.DataFrame()
 for fpath in files:
@@ -25,9 +25,11 @@ for fpath in files:
 df_merged.dropna(subset=['Volume'])
 df_sort = df_merged.sort_values('Time')
 df_reset = df_sort.reset_index(drop=True)
+df_reset.to_csv('index_reset.csv', index=False)
 
 col_name_arr = list(df.columns.values)
 print(df_merged.isnull().sum())
+
 
 #df_5col = df_merged[['Time', 'Close']]
 df_5col = df_merged[col_name_arr[:-1]]
