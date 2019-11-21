@@ -54,9 +54,13 @@ data.dropna(how='all')
 
 
 # %% [8]
-data[4] = NA
-data
+#data[4] = NA
+#data
 data.dropna(axis=1, how='all')
+
+# multiple column dropna example
+#data[4] = NA
+data.dropna(subset=[0,1], inplace=True)
 
 
 # %% [9]

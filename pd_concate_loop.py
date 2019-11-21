@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 from IPython.core.display import display
 
 # https://stackoverflow.com/questions/28669482/appending-pandas-dataframes-generated-in-a-for-loop
+# http://eforexcel.com/wp/downloads-18-sample-csv-files-data-sets-for-testing-sales/
 
 target_dir = 'D:\\Develop\\Asset\\api-usdjpy-*.csv'
 files = glob.glob(target_dir)
@@ -26,6 +27,12 @@ df_merged.dropna(subset=['Volume'])
 df_sort = df_merged.sort_values('Time')
 df_reset = df_sort.reset_index(drop=True)
 df_reset.to_csv('index_reset.csv', index=False)
+
+print(df_reset.info())
+print(df_reset.shape)
+print(df_reset.mean())
+print(df_reset.shape)
+print(df_reset.describe())
 
 col_name_arr = list(df.columns.values)
 print(df_merged.isnull().sum())
