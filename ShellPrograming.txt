@@ -22,6 +22,13 @@ VAR="${VAR2}${VAR3}"
 「${foo}${bar}」のように複数の変数を同時に参照する場合などは、{} を使用した方が個々の変数を区別しやすくなる。
 
 
+https://sousaku-memo.net/php-system/1817
+シェルスクリプトを高級言語のような書き味に近づける Tips 集
+
+set -Ceuo pipefail
+cd "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+
 https://teratail.com/questions/138861
 VAR = `ls hoge 2>&1 >/dev/null`
 

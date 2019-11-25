@@ -30,7 +30,7 @@ sns.pairplot(iris_df, hue="target")
 iris_df.plot(kind="hist",subplots=True,layout=(2,2))    #kind="kde"でカーネル密度推定
 plt.show()
 
-iris_df.columns = ['sepal_length', 'sepal_width', 'petal_length', 'petal_length', 'target']
+iris_df.columns = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'target']
 sns.distplot(iris_df[iris_df["target"]=="setosa"].sepal_length,kde=True,rug=True)
 sns.distplot(iris_df[iris_df["target"]=="versicolor"].sepal_length,kde=True,rug=True)
 plt.show()
@@ -45,3 +45,30 @@ labels = model.predict(X)
 
 from sklearn.metrics import classification_report
 #print(classification_report(iris_df['target'],model.labels_,target_names=target_names))
+
+
+'''
+# https://dev.classmethod.jp/server-side/python/jupyter-notebook-and-pandas/
+データ分析を便利にするJupyter notebookとPandas
+'''
+### UNIONのような操作はappend ###
+# appendを実行するためにテーブルを2つに分ける
+iris1 = iris_df[:75]
+iris2 = iris_df[75:]
+ 
+# appendの実行
+iris_union = iris1.append(iris2)
+
+### JOINを実現するmerge ###
+# mergeの動きを見るためにテーブルを2つに分ける
+iris1 = iris_df[['sepal_length', 'target']]
+iris2 = iris_df[['sepal_width', 'target']]
+ 
+# mergeの処理を実行
+iris_join = pd.merge(iris1, iris2, on='target')
+
+### GROUP BY相当の処理にはgroupby関数と、どのような集計を行うかの関数 ###
+iris_df.groupby('target').mean()
+
+iris_df.plot.scatter('petal_length', 'petal_width')
+plt.show()
