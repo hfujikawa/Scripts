@@ -30,6 +30,9 @@ print(df_merged)
     
 
 print(df.groupby(['city', 'food']).mean())
+print(df.groupby(['city', 'food']).std())
+print(df.groupby(['city', 'food']).describe())
+
 print(df.groupby(['city', 'food', 'price']).sum())
 
 print(df.groupby('city').get_group('osaka'))
